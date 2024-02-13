@@ -1,0 +1,47 @@
+.formicForm {
+  margin-bottom: 70px;
+}
+.labelForm {
+  font-size: 20px;
+}
+.inputForm {
+  border-radius: 3px;
+  border-color: #d9f2f0;
+
+  width: 300px;
+  padding: 15px 25px;
+
+  color: #d9f2f0;
+  border-radius: 10px;
+  background-color: #194658;
+}
+
+.error {
+  color: red;
+}
+.attention {
+  color: orange;
+}
+.errorMessageBox {
+  position: relative;
+}
+.errorMessageBox:not(:last-child) {
+  margin-bottom: 15px;
+}
+.errorMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 15px;
+  right: 5px;
+}
+.btnForm {
+  margin: 0 auto;
+  padding: 10px 25px;
+
+  color: #194658;
+  border-radius: 10px;
+  background-color: #d9f2f0;
+}

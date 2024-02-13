@@ -1,0 +1,12 @@
+.list {
+  overflow-y: scroll;
+}
+.listItems {
+  padding: 15px 20px;
+  width: 350px;
+
+  border-bottom: #d9f2f0 1px solid;
+}
+.listItems:not(:last-child) {
+  margin-bottom: 15px;
+}
