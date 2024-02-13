@@ -13,8 +13,7 @@ const SignupSchema = Yup.object().shape({
     .max(50, <GoDotFill className={css.error} />)
     .required(<FaExclamation className={css.attention} />),
   number: Yup.number()
-    // .min(0, <GoDotFill className={css.error} />)
-    // .max(0, <GoDotFill className={css.error} />)
+
     .positive(<GoDotFill className={css.error} />)
     .integer(<GoDotFill className={css.error} />)
     .required(<FaExclamation className={css.attention} />),
