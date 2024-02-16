@@ -26,11 +26,11 @@ export const App = () => {
   useEffect(() => {
     window.localStorage.setItem("settings", JSON.stringify(data));
   }, [data]);
-
+window.localStorage.clear()
   const visibleUsers = data.filter((user) =>
     user.name.toLowerCase().includes(inputValue.toLowerCase())
   );
-
+console.log(data)
   const addUsers = (newUser) => {
     setData((actualUsers) => {
       return [...actualUsers, newUser];

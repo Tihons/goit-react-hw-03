@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  background-color: #d9f2f0;
 }
 .title {
   width: 280px;
@@ -15,10 +16,10 @@
 .telIcon {
   width: 25px;
   height: 25px;
-  color: #d9f2f0;
+  color: #361bbe;
 }
 .link {
-  color: #d9f2f0;
+  color: #361bbe;
   font-size: 20px;
 }
 .addButton {

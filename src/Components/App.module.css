@@ -6,8 +6,8 @@ body {
   margin: 0;
   padding: 0;
 
-  background-color: #0f2c3e;
-  color: #d9f2f0;
+ 
+  
 }
 .title {
   font-size: 80px;
@@ -23,5 +23,5 @@ body {
   justify-content: space-evenly;
 
   border-radius: 50px;
-  background-color: #194658;
+  background-color: rgb(94, 23, 160);
 }
