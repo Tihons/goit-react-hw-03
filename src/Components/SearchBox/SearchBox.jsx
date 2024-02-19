@@ -1,5 +1,5 @@
 import { useId } from "react";
-import css from "./SearchBar.module.css";
+import css from "./SearchBox.module.css";
 
 export const SearchBar = ({ onChange }) => {
   const usernameFilter = useId();

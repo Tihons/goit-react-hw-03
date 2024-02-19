@@ -1,8 +1,8 @@
 import css from "./Contact.module.css";
-import { FaRegTrashCan } from "react-icons/fa6";
+import { FaBeer } from "react-icons/fa";
 import { IoIosCall } from "react-icons/io";
 
-export const Contact = ({ name, phone, deleteUsers }) => {
+export const Contact = ({ name, phone, onDelete, id }) => {
   return (
     <div className={css.wrapper}>
       <h2 className={css.title}>{name}</h2>
@@ -13,9 +13,9 @@ export const Contact = ({ name, phone, deleteUsers }) => {
         </a>
       </div>
 
-      <button className={css.addButton} onClick={deleteUsers}>
-        <FaRegTrashCan />
+      <button className={css.addButton} onClick={() => onDelete(id)}>
+        <FaBeer />
       </button>
     </div>
   );
-};
+}

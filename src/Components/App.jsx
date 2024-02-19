@@ -2,7 +2,7 @@ import css from "./App.module.css";
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import { ContactList } from "./ContactList/ContactList";
-import { SearchBar } from "./SearchBar/SearchBar";
+import { SearchBar } from "./SearchBox/SearchBox";
 import { ContactForm } from "./ContactForm/ContactForm";
 
 const config = [
@@ -26,7 +26,7 @@ export const App = () => {
   useEffect(() => {
     window.localStorage.setItem("settings", JSON.stringify(data));
   }, [data]);
-window.localStorage.clear()
+
   const visibleUsers = data.filter((user) =>
     user.name.toLowerCase().includes(inputValue.toLowerCase())
   );
