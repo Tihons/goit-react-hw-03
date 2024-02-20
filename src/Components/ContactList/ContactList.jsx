@@ -10,7 +10,7 @@ export const ContactList = ({ constctsList, onDelete }) => {
             <Contact
               name={item.name}
               phone={item.number}
-              deleteUsers={() => onDelete(item.id)}
+              onDelete={() => onDelete(item.id)}
             />
           </li>
         );

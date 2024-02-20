@@ -1,5 +1,5 @@
 import css from "./Contact.module.css";
-// import { FaRegTrashCan } from "react-icons/fa";
+import { FaRegTrashCan } from "react-icons/fa6";
 import { IoIosCall } from "react-icons/io";
 
 export const Contact = ({ name, phone, onDelete, id }) => {
@@ -14,7 +14,7 @@ export const Contact = ({ name, phone, onDelete, id }) => {
       </div>
 
       <button className={css.addButton} onClick={() => onDelete(id)}>
-        {/* <FaRegTrashCan /> */}
+        <FaRegTrashCan />
       </button>
     </div>
   );
