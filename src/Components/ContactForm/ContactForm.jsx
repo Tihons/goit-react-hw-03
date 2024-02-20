@@ -8,18 +8,19 @@ import { GoDotFill } from "react-icons/go";
 import { FaExclamation } from "react-icons/fa6";
 
 const phoneRegExp =
-  "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$";
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, <GoDotFill className={css.error} />)
     .max(50, <GoDotFill className={css.error} />)
     .required(<FaExclamation className={css.attention} />),
   number: Yup.string()
-
-    .min(3, <GoDotFill className={css.error} />)
-    .max(50, <GoDotFill className={css.error} />)
-    .required(<FaExclamation className={css.attention} />)
-    .matches(phoneRegExp, "Phone number is not valid"),
+    .required("required")
+    .matches(phoneRegExp, "Phone number is not valid")
+    .min(3, "too short")
+    .max(10, "too long")
+    .required(<FaExclamation className={css.attention} />),
 });
 
 export const ContactForm = ({ onAdd }) => {
