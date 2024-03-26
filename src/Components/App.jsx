@@ -1,5 +1,5 @@
-import css from "./App.module.css";
-import { useState, useEffect } from "react";
+import css from './App.module.css'
+import {data, setData} from "react";
 import { nanoid } from "nanoid";
 import { ContactList } from "./ContactList/ContactList";
 import { SearchBar } from "./SearchBox/SearchBox";
@@ -13,7 +13,8 @@ const config = [
 ];
 
 const localStorage = () => {
-  const savedObject = window.localStorage.getItem("settings");
+ 
+  const [data, setData] = useState(()=> JSON.parse(window.localStorage.getItem("settings") || []));
   if (savedObject !== null) {
     return JSON.parse(savedObject);
   }
@@ -21,24 +22,21 @@ const localStorage = () => {
 };
 
 export const App = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [data, setData] = useState(localStorage);
-  useEffect(() => {
-    window.localStorage.setItem("settings", JSON.stringify(data));
-  }, [data]);
+  const [inputValue, setInputValue] = useState('');
+  const [data, setData] = useState(()=> JSON.parse(localStorage.getItem("settings") || []));
 
-  const visibleUsers = data.filter((user) =>
+  const visibleUsers = data.filter(user =>
     user.name.toLowerCase().includes(inputValue.toLowerCase())
   );
-console.log(data)
-  const addUsers = (newUser) => {
-    setData((actualUsers) => {
+
+  const addUsers = newUser => {
+    setData(actualUsers => {
       return [...actualUsers, newUser];
     });
   };
-  const deleteUsers = (userId) =>
-    setData((actualUsers) => {
-      return actualUsers.filter((user) => user.id !== userId);
+  const deleteUsers = userId =>
+    setData(actualUsers => {
+      return actualUsers.filter(user => user.id !== userId);
     });
 
   return (
@@ -48,7 +46,7 @@ console.log(data)
         <div className={css.formBox}>
           <ContactForm onAdd={addUsers} />
           <SearchBar
-            onChange={(event) => {
+            onChange={event => {
               setInputValue(event.target.value);
             }}
           />
