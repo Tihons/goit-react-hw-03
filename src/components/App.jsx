@@ -1,7 +1,7 @@
 import css from './App.module.css'
 import {data, setData} from "react";
 import { nanoid } from "nanoid";
-import { ContactList } from "./ContactList/ContactList";
+import { ContactList } from "../ContactList/ContactList";
 import { SearchBar } from "./SearchBox/SearchBox";
 import { ContactForm } from "./ContactForm/ContactForm";
 
