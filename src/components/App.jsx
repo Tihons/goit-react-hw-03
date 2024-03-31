@@ -1,7 +1,8 @@
 import css from './App.module.css'
-import {data, setData} from "react";
+import {useState, useEffect} from "react";
+
 import { nanoid } from "nanoid";
-import { ContactList } from "../ContactList/ContactList";
+import { ContactList } from "./ContactList/ContactList";
 import { SearchBar } from "./SearchBox/SearchBox";
 import { ContactForm } from "./ContactForm/ContactForm";
 
@@ -12,31 +13,28 @@ const config = [
   { id: nanoid(), name: "Annie Copeland", number: "227-91-26" },
 ];
 
-const localStorage = () => {
- 
-  const [data, setData] = useState(()=> JSON.parse(window.localStorage.getItem("settings") || []));
-  if (savedObject !== null) {
-    return JSON.parse(savedObject);
-  }
-  return config;
-};
+
 
 export const App = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [data, setData] = useState(()=> JSON.parse(localStorage.getItem("settings") || []));
+  const [inputValue, setInputValue] = useState("");
+  const [data, setData] = useState(()=> JSON.parse( window.localStorage.getItem("settings")) || config);
 
-  const visibleUsers = data.filter(user =>
+  useEffect(() => {
+    window.localStorage.setItem("settings", JSON.stringify(data));
+  }, [data]);
+
+  const visibleUsers = data.filter((user) =>
     user.name.toLowerCase().includes(inputValue.toLowerCase())
   );
 
-  const addUsers = newUser => {
-    setData(actualUsers => {
+  const addUsers = (newUser) => {
+    setData((actualUsers) => {
       return [...actualUsers, newUser];
     });
   };
-  const deleteUsers = userId =>
-    setData(actualUsers => {
-      return actualUsers.filter(user => user.id !== userId);
+  const deleteUsers = (userId) =>
+    setData((actualUsers) => {
+      return actualUsers.filter((user) => user.id !== userId);
     });
 
   return (
@@ -46,7 +44,7 @@ export const App = () => {
         <div className={css.formBox}>
           <ContactForm onAdd={addUsers} />
           <SearchBar
-            onChange={event => {
+            onChange={(event) => {
               setInputValue(event.target.value);
             }}
           />
